@@ -5,6 +5,16 @@ var mytoken = require('./secrets.js');
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 
+if (process.argv.length !== 4) {
+  console.log("The script requires 2 arguments. node download_avatars.js <owner> <repo>");
+  throw "Two arguments required";
+}
+
+const owner = process.argv[2];
+const repo = process.argv[3];
+
+
+
 function getRepoContributors(repoOwner, repoName, cb) {
 
   var options = {
